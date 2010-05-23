@@ -96,6 +96,23 @@ of what it is going to do, and no pauses unless absolutely needed.  However,
 if you're doing this for the first time or you appreciate knowing what it is
 actually doing, I suggest you skip the `-q`.
 
+
+#### multiple gitolite servers
+
+If you need to administer multiple gitolite servers from your workstation,
+append a "host nickname" parameter to gl-easy-install. Gitolite will only 
+clone the "gitolite-admin" repository for the first server. You will need 
+to manually clone this repository for any additional servers when 
+installation has completed.
+
+A typical run might be:
+
+    ./src/gl-easy-install -q git my.git.server admin_user1 gitolite_server_1
+
+This will allow you to clone using a command similar to:
+    
+    git clone gitolite_server_1:gitolite-admin.git
+
 #### advantages over the older install methods
 
   * all ssh problems reduced to **just one pre-requisite**: enable ssh pubkey
